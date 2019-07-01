@@ -4,13 +4,22 @@
       <li><router-link :to="{name: 'home'}" exact>home</router-link></li>
       <li><router-link :to="{name: 'router'}">router</router-link></li>
     </ul>
-    <router-view class="router-wrap"></router-view>
+    <transition name="fade" mode="out-in">
+      <router-view class="router-wrap"></router-view>
+    </transition>
   </div>
 </template>
 
 <script>
 export default {
   name: 'app',
+  // watch: {
+  //   '$route' (to, from) {
+  //     const toDepth = to.path.split('/').length
+  //     const fromDepth = from.path.split('/').length
+  //     this.transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left'
+  //   }
+  // }
 }
 </script>
 
@@ -39,5 +48,16 @@ export default {
 }
 .router-wrap {
   padding: 0 15px;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition-duration: 0.3s;
+  transition-property: opacity;
+  transition-timing-function: ease;
+}
+
+.fade-enter,
+.fade-leave-active {
+  opacity: 0
 }
 </style>

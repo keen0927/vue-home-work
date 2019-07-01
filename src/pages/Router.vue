@@ -10,6 +10,7 @@
 		<p v-text="importRouter"></p>
 		<p v-text="constRouter"></p>
 		<p>router-view에는 매핑한 컴포넌트가 나타나게 된다.</p>
+		<button @click="handlerPush">테스트 버튼</button>
 	</div>
 </template>
 
@@ -42,6 +43,15 @@
 					{ no:1002, name:'킨2', tel:'010-3333-3333' },
 					{ no:1003, name:'킨3', tel:'010-3333-3333' },
 				]
+			}
+		},
+		methods: {
+			handlerPush() {
+				// this.$router.push('/');
+				this.$router.push({name: 'home'});
+				// this.$router.push({name: 'home', params: {no: 1002}});
+				// 쿼리
+				router.push({path: '/contacts', query: {pageno: 1, pagesize: 5}})
 			}
 		},
 	}
