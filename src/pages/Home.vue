@@ -62,7 +62,8 @@
 			},
 			handlerSearch() {
 				let searchText = this.searchValue;
-				console.log(searchText);
+				if (searchText === "") return;
+				
 			}
 		},
 	}

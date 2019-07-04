@@ -1,6 +1,7 @@
 // Page
 import Home from '../pages/Home.vue';
 import Router from '../pages/Router.vue';
+import Word from '../pages/Word.vue';
 
 export const routes = [
   {
@@ -12,5 +13,10 @@ export const routes = [
     path: '/router',
     name: 'router',
     component: Router
+  },
+  {
+    path: '/word',
+    name: 'word',
+    component: Word
   }
 ]

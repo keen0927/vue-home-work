@@ -3,6 +3,7 @@
     <ul class="nav">
       <li><router-link :to="{name: 'home'}" exact>home</router-link></li>
       <li><router-link :to="{name: 'router'}">router</router-link></li>
+      <li><router-link :to="{name: 'word'}">word</router-link></li>
     </ul>
     <transition name="fade" mode="out-in">
       <router-view class="router-wrap"></router-view>
