@@ -15,6 +15,10 @@
 		</ul>
 
 		<p>
+			<input type="text" v-model="searchValue">
+			<button type="button" @click="handlerSearch">검색</button>
+		</p>
+		<p>
 			<input type="text" v-model="inputValue">
 			<button type="button" ref="reg" @click="regList">등록</button>
 		</p>
@@ -35,6 +39,7 @@
 					{title: '제목4',editInput:false},
 				],
 				inputValue: "",
+				searchValue: "",
 				editValue: ""
 			}
 		},
@@ -54,6 +59,10 @@
 				this.lists[index].title = this.editValue;
 				this.editValue = "";
 				this.lists[index].editInput = false;
+			},
+			handlerSearch() {
+				let searchText = this.searchValue;
+				console.log(searchText);
 			}
 		},
 	}
