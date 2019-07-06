@@ -1,6 +1,6 @@
 <template>
     <div>
-CountryList
+Region
     </div>
 </template>
 

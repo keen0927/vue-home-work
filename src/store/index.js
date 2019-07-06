@@ -5,7 +5,7 @@ import _ from 'lodash';
 
 Vue.use(Vuex);
 
-const store = new Vuex.store({
+const store = new Vuex.Store({
     state: {
       currentRegion: 'all',
       conutries: {
