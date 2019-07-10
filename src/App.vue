@@ -1,35 +1,45 @@
 <template>
     <div>
-        {{ count }}
-        <button @click="increment" >증가</button>
-        <button @click="decrement" >감소</button>
+        <appQuote>
+            <h2 slot="title">The Quote</h2>
+            <p slot="content">A wonderful Quote</p>
+        </appQuote>
 
-        <p>모든 유저 : {{ $store.getters.allUsersLength }}</p>
+        <moduleTitle>
+            <strong>{{title}}</strong>
+            <b>4</b>
+            <span>시간남음</span>
+        </moduleTitle>
+
+        <button @click="selectedComponent = 'appQuote'">Quote</button>
+        <button @click="selectedComponent = 'Author'">Author</button>
+        <button @click="selectedComponent = 'New'">New</button>
+        <p>{{ selectedComponent }}</p>
+        <component :is="selectedComponent">
+            <p>디폴트</p>
+        </component>
     </div>
 </template>
 
 <script>
-// import RegionButtons from './components/RegionButtons.vue';
-// import CountryList from './components/CountryList.vue';
+    import appQuote from './components/Quote';
+    import moduleTitle from './components/moduleTitle';
+    import Author from './components/Author';
+    import New from './components/New';
 
     export default {
         name: 'App',
+        data() {
+            return {
+                title: '제목타이틀',
+                selectedComponent: 'appQuote'
+            }
+        },
         components: {
-            // RegionButtons,
-            // CountryList
-        },
-        computed: {
-            count() {
-                return this.$store.state.count
-            }
-        },
-        methods: {
-            increment() {
-                this.$store.commit('increment');
-            },
-            decrement() {
-                this.$store.commit('decrement');
-            }
+            appQuote,
+            moduleTitle,
+            Author: Author,
+            New: New,
         },
     }
 </script>

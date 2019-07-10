@@ -15,6 +15,16 @@ const store = new Vuex.Store({
   getters: {
     allUsersLength: state => {
       return state.allUsers.length
+    },
+    countOfAge: state => {
+      let count = 0;
+      state.allUsers.forEach(user => {
+        if (user.age === '37') count ++
+      })
+      return count;
+    },
+    percentOfSeoul: (state, getters) => {
+      return Math.round(getters.countOfAge / getters.allUsersLength * 100)
     }
   },
   mutations: {
